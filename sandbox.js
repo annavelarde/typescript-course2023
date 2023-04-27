@@ -1,4 +1,4 @@
-var character = "anna";
+var character = 'anna';
 console.log(character);
-var inputs = document.querySelectorAll("input");
+var inputs = document.querySelectorAll('input');
 console.log(inputs);
