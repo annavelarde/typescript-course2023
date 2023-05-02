@@ -1,21 +1,12 @@
-let greet:Function;
-//greet='hello';
+//type: it's a reserved word in typescript
 
-greet=()=>{console.log('hello,again');}
-// greet();
+type StringOrNum = string | number;
+type objWithName ={name:string, uid: StringOrNum}
 
-//C has two optional number and string. we usually add them at the end.Default parameter is 9.
-const add=(a:number, b:number, c:number | string=9):void=>{
-    console.log(a+b);
-    console.log(c)
-}
-//We update sting '9' for '8'. 
-add(5,10,'8')
-
-
-const minus =(a:number, b:number): number =>{
-    return a+b;
-    // console.log('done');
+const logDetails = (uid: StringOrNum, item:string)=>{
+    console.log(`${item} has a uid of ${uid}`);
 }
 
-let result = minus (10,7);
+const greet = (user:objWithName)=>{console.log(`${user.name} says hello`);}
+
+const greetAgain = (user:objWithName)=>{console.log(`${user.name} says hello`);}
