@@ -1,19 +1,17 @@
-// Lesson 12 = Classes
+// Lesson 13 = Public, Private &Readonly
 
-//Classes. Instead of using camelCase we use pascal. It means to add a capital.
+//if we use access modifiers, then we can comment the below and add (readonly/private/public) in the constructor
 class Invoice{
-    //typescript
-    client:string;
-    details:string;
-    amount:number;
+    // readonly client:string; //Readonly: We can't change the value inside or outside the class
+    // private details:string;
+    // public amount:number;
 
-    //this function inside a class it´s called method
-    constructor(c:string, d:string, a:number){
-        this.client =c;
-        this.details=d;
-        this.amount =a;
-    }
-    
+    constructor(
+        readonly client:string,
+        private details:string,       
+        public amount:number,
+        ){ }
+     
     format(){
     return`${this.client} owes ${this.amount} for ${this.details} `;
     }
@@ -32,11 +30,9 @@ let invoices: Invoice[]=[]
 invoices.push(invOne);
 invoices.push(invTwo)
 
-//We can specify the values too below and update some of the values above.
-invOne.client='Yan';
-invTwo.amount=30;
-
-console.log(invoices);
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format()); //we added details private in the class, so we delete "inv.details" from the iteration 
+});
 
 //---------
 

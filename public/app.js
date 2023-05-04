@@ -1,12 +1,14 @@
 "use strict";
-// Lesson 12 = Classes
-//Classes. Instead of using camelCase we use pascal. It means to add a capital.
+// Lesson 13 = Public, Private &Readonly
+//if we use access modifiers, then we can comment the below and add (readonly/private/public) in the constructor
 class Invoice {
-    //this function inside a class it´s called method
-    constructor(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
+    // readonly client:string; //Readonly: We can't change the value inside or outside the class
+    // private details:string;
+    // public amount:number;
+    constructor(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     format() {
         return `${this.client} owes ${this.amount} for ${this.details} `;
@@ -21,10 +23,9 @@ const form = document.querySelector('.new-item-form');
 let invoices = [];
 invoices.push(invOne);
 invoices.push(invTwo);
-//We can specify the values too below and update some of the values above.
-invOne.client = 'Yan';
-invTwo.amount = 30;
-console.log(invoices);
+invoices.forEach(inv => {
+    console.log(inv.client, inv.amount, inv.format()); //we added details private in the class, so we delete "inv.details" from the iteration 
+});
 //---------
 //inputs. 
 const type = document.querySelector('#type');
