@@ -1,21 +1,6 @@
-// Lesson 13 = Public, Private &Readonly
+//in this lesson we learnt how to split code from app.ts to Invoice.ts.
 
-//if we use access modifiers, then we can comment the below and add (readonly/private/public) in the constructor
-class Invoice{
-    // readonly client:string; //Readonly: We can't change the value inside or outside the class
-    // private details:string;
-    // public amount:number;
-
-    constructor(
-        readonly client:string,
-        private details:string,       
-        public amount:number,
-        ){ }
-     
-    format(){
-    return`${this.client} owes ${this.amount} for ${this.details} `;
-    }
-}
+import {Invoice} from './classes/Invoice.js';
 
 //we use the reserved word "new" to create new objects
 const invOne= new Invoice('anna','work in coding', 250);
