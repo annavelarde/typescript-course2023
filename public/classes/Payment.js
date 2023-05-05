@@ -1,11 +1,11 @@
 //We are importing an exportation called "HasFormatter" and we are complementing the class
-export class Invoice {
-    constructor(client, details, amount) {
-        this.client = client;
+export class Payment {
+    constructor(recipient, details, amount) {
+        this.recipient = recipient;
         this.details = details;
         this.amount = amount;
     }
     format() {
-        return `${this.client} owes ${this.amount} for ${this.details} `;
+        return `${this.recipient} owes ${this.amount} for ${this.details} `;
     }
 }

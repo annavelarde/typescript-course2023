@@ -1,39 +1,53 @@
-//lesson-15
+//lesson-16
+import {Invoice} from './classes/Invoice.js';
+import {Payment} from './classes/Payment.js';
+import {HasFormatter} from './interfaces/HasFormatter.js';
 
-//it has two methods 'speak' and 'spend' with one parameter each)
-// isPerson use a specific structure.
-interface IsPerson{
-    name:string;
-    age:number;
-    speak(a:String):void;
-    spend(a:number):number;
-}
+// let docOne:HasFormatter;
+// let docTwo:HasFormatter;
 
-//instance of the IsPerson with all the values
-const me: IsPerson={
-    name:'anna',
-    age:30,
-    speak(text:string):void{
-        console.log(text);
-    },
-    spend (amount:number):number{
-        console.log('I spent', amount);
-        return amount;
-    }
-}
+// docOne = new Invoice ('yoshi', 'web work', 250);
+// docTwo = new Payment ('mario', 'plumbing', 200);
+
+// //we create an empty array
+// let docs: HasFormatter[]=[]
+// docs.push(docOne); //invoice
+// docs.push(docTwo);  //payment
+
+// console.log(docs);
+
+//---------
+
+// interface IsPerson{
+//     name:string;
+//     age:number;
+//     speak(a:String):void;
+//     spend(a:number):number;
+// }
+
+// //instance of the IsPerson with all the values
+// const me: IsPerson={
+//     name:'anna',
+//     age:30,
+//     speak(text:string):void{
+//         console.log(text);
+//     },
+//     spend (amount:number):number{
+//         console.log('I spent', amount);
+//         return amount;
+//     }
+// }
 
 // console.log(me)
 // me.spend(30)
 // me.speak('anna')
 
-const greetPerson =(person: IsPerson)=>{
-    console.log('welcome', person.name);
-}
+// const greetPerson =(person: IsPerson)=>{
+//     console.log('welcome', person.name);
+// }
 
-greetPerson(me)
+// greetPerson(me)
 
-
-import {Invoice} from './classes/Invoice.js';
 
 //we use the reserved word "new" to create new objects
 const invOne= new Invoice('anna','work in coding', 250);
@@ -54,19 +68,33 @@ invoices.forEach(inv => {
 
 //---------
 
-//inputs. 
+//inputs. DOM Manipulation
 const type=document.querySelector('#type') as HTMLSelectElement
 const tofrom=document.querySelector('#tofrom') as HTMLInputElement
 const details=document.querySelector('#details') as HTMLInputElement
 const amount=document.querySelector('#amount') as HTMLInputElement
 
+//for the button 'Add'we use an eventlistener
 form.addEventListener('submit',(e:Event)=>{
     e.preventDefault();
+    
+    //esta variable debe cumplir con la funcion HasFormatter
+    let doc: HasFormatter;
+    
+    //type of dropdown (Invoice/Payment)
+    if (type.value ==='invoice'){
+        doc = new Invoice(tofrom.value, details.value,amount.valueAsNumber)
+    } else{
+        doc = new Payment(tofrom.value, details.value,amount.valueAsNumber)
 
-    console.log(
-        type.value,
-        tofrom.value,
-        details.value,
-        amount.valueAsNumber)
+    }
+
+    // console.log(
+    //     type.value,
+    //     tofrom.value,
+    //     details.value,
+    //     amount.valueAsNumber)
+
+    console.log(doc);
 ;})
 
