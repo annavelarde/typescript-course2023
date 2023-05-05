@@ -1,4 +1,37 @@
-//in this lesson we learnt how to split code from app.ts to Invoice.ts.
+//lesson-15
+
+//it has two methods 'speak' and 'spend' with one parameter each)
+// isPerson use a specific structure.
+interface IsPerson{
+    name:string;
+    age:number;
+    speak(a:String):void;
+    spend(a:number):number;
+}
+
+//instance of the IsPerson with all the values
+const me: IsPerson={
+    name:'anna',
+    age:30,
+    speak(text:string):void{
+        console.log(text);
+    },
+    spend (amount:number):number{
+        console.log('I spent', amount);
+        return amount;
+    }
+}
+
+// console.log(me)
+// me.spend(30)
+// me.speak('anna')
+
+const greetPerson =(person: IsPerson)=>{
+    console.log('welcome', person.name);
+}
+
+greetPerson(me)
+
 
 import {Invoice} from './classes/Invoice.js';
 

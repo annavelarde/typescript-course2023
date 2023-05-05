@@ -1,4 +1,23 @@
-//in this lesson we learnt how to split code from app.ts to Invoice.ts.
+//lesson-15
+//instance of the IsPerson with all the values
+const me = {
+    name: 'anna',
+    age: 30,
+    speak(text) {
+        console.log(text);
+    },
+    spend(amount) {
+        console.log('I spent', amount);
+        return amount;
+    }
+};
+// console.log(me)
+// me.spend(30)
+// me.speak('anna')
+const greetPerson = (person) => {
+    console.log('welcome', person.name);
+};
+greetPerson(me);
 import { Invoice } from './classes/Invoice.js';
 //we use the reserved word "new" to create new objects
 const invOne = new Invoice('anna', 'work in coding', 250);
